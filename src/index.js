@@ -21,12 +21,13 @@ const BookList = [
 
 // Book function component
 const Book = (props) => {
-  let {title, author, pages} = props.book;
+  let {book, freeBookmarkToday} = props;
   return (
     <section>
-      <p><b>Title: {title}</b></p>
-      <p>by - {author}</p>
-      <p>Pages: {pages}</p>
+      <p><b>Title: {book.title}</b></p>
+      <p>by - {book.author}</p>
+      <p>Pages: {book.pages}</p>
+      <p>Free Bookmark Today: {freeBookmarkToday ? 'yes!' : 'no :('}</p>
     </section>
   )
 }
@@ -52,7 +53,8 @@ class Library extends Component {
 
   state = { 
     isOpen: false,
-    isHiring: true
+    isHiring: true,
+    freeBookmarkToday: false
   };
 
   // on click handler (callback)
@@ -71,7 +73,7 @@ class Library extends Component {
         <button onClick={this.toggleLibrary}>{this.state.isOpen ? 'Close' : 'Open'}</button>
         {/* Iterate over the data */}
         <section>
-          { this.props.books.map(book => (<Book book={book} key={book.title} />)) }
+          { this.props.books.map(book => (<Book book={book} key={book.title} freeBookmarkToday={this.state.freeBookmarkToday} />)) }
         </section>
       </div>
     )
