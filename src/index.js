@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {render} from 'react-dom';
+import Library from './Library'
 
 const BookList = [
   {
@@ -18,7 +19,7 @@ const BookList = [
     pages: 800
   }
 ];
-
+/*
 // Book function component
 const Book = (props) => {
   let {book, freeBookmarkToday} = props;
@@ -94,7 +95,6 @@ class Library extends Component {
         
         <button onClick={this.toggleLibrary}>{this.state.isOpen ? 'Close' : 'Open'}</button>
         
-        {/* Iterate over the data */}
         <section>
           { this.props.books.map(book => (<Book book={book} key={book.title} freeBookmarkToday={this.state.freeBookmarkToday} />)) }
         </section>
@@ -102,6 +102,7 @@ class Library extends Component {
     )
   }
 }
+*/
 
 const App = () => {
   return (
