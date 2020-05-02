@@ -31,10 +31,29 @@ const Book = (props) => {
   )
 }
 
+const Hiring = () => {
+  return (
+    <div>
+      The library is hiring. Please check <a href="https://www.mylibrary.com/jobs">Carrers Page</a> for more info.
+    </div>
+  )
+}
+
+const NotHiring = () => {
+  return (
+    <div>
+      The library is currently not hiring. Please check back later for mroe.
+    </div>
+  )
+}
+
 // Library class component
 class Library extends Component {
 
-  state = { isOpen: false };
+  state = { 
+    isOpen: false,
+    isHiring: true
+  };
 
   // on click handler (callback)
   toggleLibrary = () => {
@@ -45,6 +64,7 @@ class Library extends Component {
   render() {
     return (
       <div>
+        { this.state.isHiring ? <Hiring /> : <NotHiring /> }
         <h4 style={{color: 'white', padding: '0.5rem', background: this.state.isOpen ? 'green': 'red'}}>
           The library {this.state.isOpen ? ' is open.' : ' is not open.'} 
         </h4>
