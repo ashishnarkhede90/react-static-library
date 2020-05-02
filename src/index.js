@@ -19,25 +19,29 @@ const BookList = [
   }
 ];
 
-const Library = () => (
-  <div>
-    {/* Iterate over the data */}
-    <section>
-      { BookList.map(book => (
-          <section>
-            <p><b>Title: {book.title}</b></p>
-            <p>by - {book.author}</p>
-            <p>Pages: {book.pages}</p>
-          </section>
-        ))
-      }
-    </section>
-  </div>
-)
+// Library function component
+const Library = (props) => {
+  console.log(props);
+  return (
+    <div>
+      {/* Iterate over the data */}
+      <section>
+        { props.books.map(book => (
+            <section key={book.title}>
+              <p><b>Title: {book.title}</b></p>
+              <p>by - {book.author}</p>
+              <p>Pages: {book.pages}</p>
+            </section>
+          ))
+        }
+      </section>
+    </div>
+  )
+}
 
 const App = () => {
   return (
-    <Library />
+    <Library books={BookList}/>
   )
 }
 
