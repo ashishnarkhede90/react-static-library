@@ -31,36 +31,24 @@ const Book = (props) => {
   )
 }
 
-// Library function component
-/*const Library = (props) => {
-  console.log(props);
-  return (
-    <div>
-      {/ Iterate over the data /}
-      <section>
-        { props.books.map(book => (<Book book={book} key={book.title} />)) }
-      </section>
-    </div>
-  )
-}
-*/
-
 // Library class component
 class Library extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = { isOpen: true }
+
+  state = { isOpen: false };
+
+  // on click handler (callback)
+  toggleLibrary = () => {
+    console.log(this.state);
+    this.setState((state) => ({ isOpen: !state.isOpen }) )
   }
 
   render() {
-    console.log('Library', 'class component');
-
     return (
       <div>
         <h4 style={{color: 'white', padding: '0.5rem', background: this.state.isOpen ? 'green': 'red'}}>
           The library {this.state.isOpen ? ' is open.' : ' is not open.'} 
         </h4>
+        <button onClick={this.toggleLibrary}>{this.state.isOpen ? 'Close' : 'Open'}</button>
         {/* Iterate over the data */}
         <section>
           { this.props.books.map(book => (<Book book={book} key={book.title} />)) }
