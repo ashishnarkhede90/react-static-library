@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 
 const BookList = [
   {
@@ -21,11 +21,12 @@ const BookList = [
 
 // Book function component
 const Book = (props) => {
+  let {title, author, pages} = props.book;
   return (
     <section>
-      <p><b>Title: {props.book.title}</b></p>
-      <p>by - {props.book.author}</p>
-      <p>Pages: {props.book.pages}</p>
+      <p><b>Title: {title}</b></p>
+      <p>by - {author}</p>
+      <p>Pages: {pages}</p>
     </section>
   )
 }
@@ -49,7 +50,7 @@ const App = () => {
   )
 }
 
-ReactDOM.render(
+render(
   <App />,
   document.getElementById('root')
 );
